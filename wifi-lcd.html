@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wifi | LCD</title>
+  </head>
+  <body>
+    <input name="textLcd" />
+    <button onclick="sendMessageToLcd();">Enviar</button>
+
+    <script>
+      function sendMessageToLcd(e) {
+        let message = document.getElementsByName("textLcd").value;
+
+        fetch(`http://192.168.15.15:80?message=${message}`)
+          .then((response) => {
+            console.log("Foi");
+          })
+          .catch((error) => {});
+      }
+    </script>
+  </body>
+</html>
